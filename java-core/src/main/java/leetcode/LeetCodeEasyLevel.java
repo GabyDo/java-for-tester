@@ -1,4 +1,4 @@
-package test.basic;
+package leetcode;
 
 import support.ListNode;
 
@@ -13,7 +13,6 @@ public class LeetCodeEasyLevel {
         int a = maxProfit2(dummy);
         System.out.println();
         Set<Character> set = new HashSet<>();
-
 
     }
 

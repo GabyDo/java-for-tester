@@ -1,4 +1,4 @@
-package test.basic;
+package leetcode;
 
 import support.ListNode;
 
