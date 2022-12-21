@@ -6,15 +6,138 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+//hoi khac nhau: i= i++; i++;
 
+//Write a function:
+//
+//class Solution { public int solution(int[] A); }
+//
+//that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+//
+//        For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
+//
+//        Given A = [1, 2, 3], the function should return 4.
+//
+//        Given A = [−1, −3], the function should return 1.
+//
+//        Write an efficient algorithm for the following assumptions:
+//
+//        N is an integer within the range [1..100,000];
+//        each element of array A is an integer within the range [−1,000,000..1,000,000].
 public class LeetCodeEasyLevel {
-    public static void main(String args[]){
-        int[] dummy = new int[] {7,1,5,3,6,4};
-        int a = maxProfit2(dummy);
-        System.out.println();
-        Set<Character> set = new HashSet<>();
+    public static void main(String args[]) {
 
     }
+
+    //20. Valid Parentheses
+
+
+
+
+
+    //9. Palindrome Number
+    public static boolean isPalindrome(int x) {
+        if (x<0) {
+            return false;
+        }
+
+        String s = String.valueOf(x);
+        for ( int i = 0; i< s.length(); i++) {
+            if (s.charAt(i) != s.charAt(s.length() - (i+1))) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    //14. Longest Common Prefix
+    public static String longestCommonPrefix(String[] strs)  {
+            if (strs.length == 0) {
+                return "";
+            }
+
+            String p = strs[0];
+
+            for (int i = 1; i < strs.length; i++) {
+
+                while (strs[i].indexOf(p) != 0) {
+
+                    p = p.substring(0, p.length() - 1);
+
+                    if (p.isEmpty()) {
+
+                        return "";
+
+                    }
+                }
+            }
+            return p;
+        }
+
+    public String longestCommonPrefix2(String[] strs) {
+        String first = strs[0];
+        int index = first.length();
+        Character a;
+        //abcd abf ae
+
+        for (int i=0; i< first.length(); i++) {
+            a = first.charAt(i);
+
+            for ( int j=1; j< strs.length; j++) {
+                String temp = strs[j];
+                Character c = null;
+
+                if (i < temp.length()) {
+                    c = temp.charAt(i);
+                }
+
+                if (c != a) {
+                    return first.substring(0,i);
+                }
+
+            }
+
+        }
+
+        return first;
+    }
+
+    //13. Roman to Integer
+    public static int romanToInt(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+
+        Map<String, Integer> mapInstance = new HashMap<>();
+        mapInstance.put("IV", 4);
+        mapInstance.put("IX", 9);
+        mapInstance.put("XL", 40);
+        mapInstance.put("XC", 90);
+        mapInstance.put("CD", 400);
+        mapInstance.put("CM", 900);
+
+
+
+        int l = s.length();
+        int sum = 0;
+        for (int i = 0 ; i< l; i ++) {
+            if ( (i <= l-2) && mapInstance.containsKey(s.substring(i, i+2))) {
+                sum += mapInstance.get(s.substring(i, i+2));
+                i++;
+            } else {
+                sum += map.get(s.charAt(i));
+            }
+        }
+        return sum;
+    }
+
 
     //409. Longest Palindrome:Đọc xuôi ngược đều giống như nhau
     public int longestPalindrome(String s) {
