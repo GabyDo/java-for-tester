@@ -27,12 +27,37 @@ import java.util.Set;
 public class LeetCodeEasyLevel {
     public static void main(String args[]) {
 
+        int sum = 15;
+
+       int k = isRturn(sum);
+        System.out.printf("");
+
+
+
+
     }
 
-    //20. Valid Parentheses
 
+    public static int isRturn(int sum) {
+        int calculation = 0;
+        int dem = 0;
 
+        for (int i =0 ; i<= sum; i++) {
+            calculation = calculation + i;
+            if(calculation == sum) {
+                dem = i;
+                break;
+            } else {
+                if (calculation > sum) {
+                    dem = i-1;
+                    break;
+                }
+            }
+        }
+        return dem;
+    }
 
+    //20. Valid Parenthese
 
 
     //9. Palindrome Number
@@ -66,11 +91,11 @@ public class LeetCodeEasyLevel {
 
                     p = p.substring(0, p.length() - 1);
 
-                    if (p.isEmpty()) {
-
-                        return "";
-
-                    }
+//                    if (p.isEmpty()) {
+//
+//                        return "";
+//
+//                    }
                 }
             }
             return p;
